@@ -31,6 +31,9 @@ public class UserService {
 
     public String createUser(CreateUserRequestDTO createUserRequestDTO){
 
+        if(userRepository.existsByUsername(createUserRequestDTO.getUsername())){
+            return "User already exists";
+        }
         User user = new User();
         user.setUsername(createUserRequestDTO.getUsername());
         user.setPassword(passwordEncoder.encode(createUserRequestDTO.getPassword()));
