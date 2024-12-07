@@ -20,7 +20,7 @@ public class AdminInitializer {
         if(userRepository.findByUsername("admin") == null) {
             User user = new User();
             user.setUsername("admin");
-            user.setPassword(passwordEncoder.encode("admin2004"));
+            user.setPassword(passwordEncoder.encode("admin"));
             user.setRole(UserRole.ADMIN);
 
             userRepository.save(user);
